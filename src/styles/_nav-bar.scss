@@ -1,0 +1,169 @@
+nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  position: fixed;
+  
+  top: 0;
+  left: 0;
+
+  height: $nav-bar-height;
+  width: calc(100% - 60px);
+
+  padding: 0 30px;
+
+  transition: background 200ms ease-in-out;
+
+  z-index: 10;
+
+  &.scrolled{
+    background: #0e0b14;
+  }
+}
+
+nav .logo{
+  display: block;
+  width: 50px;
+  border-radius: 10px;
+}
+
+nav .links{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-left: 40px;
+}
+
+nav .links a{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin: 0 15px;
+
+  &:hover{
+    span::after{
+      width: 100%;
+    }
+  }
+
+  &:first-child{
+    margin-left: 0;
+  }
+
+  &:last-child{
+    margin-right: 0;
+  }
+
+  i{
+    font-size: 13px;
+  }
+
+  span{
+    position: relative;
+
+    margin-left: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+  }
+
+  span::after{
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -4px;
+
+    width: 0;
+    height: 2px;
+    
+    background-color: #fff;
+
+    transition: width 150ms ease-in-out;
+  }
+}
+
+nav .mobile-wrap{
+  position: relative;
+}
+
+nav .mobile{
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+nav .mobile-button{
+  display: none;
+  margin: 0 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px){
+  nav .links{
+    margin-left: auto;
+  }
+
+  nav .links a{
+    i{
+      font-size: 15px;
+    }
+
+    span{
+      display: none;
+    }
+  }
+
+  nav .mobile-button{
+    display: block;
+
+    margin-right: 0;
+  }
+
+  nav .mobile{
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+    
+    top: calc(100% + 15px);
+    right: 0;
+
+    min-width: 120px;
+
+    margin: 0;
+    padding: 15px;
+
+    background-color: rgb(19, 19, 19);
+    
+    border: 1px solid rgba(151, 151, 151, 0.34);
+    border-radius: 5px;
+
+    &.visible{
+      display: block;
+    }
+  }
+
+  nav .mobile a{
+    margin: 20px 0 0;
+
+    i{
+      font-size: 14px;
+    }
+
+    span{
+      display: block;
+    }
+
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+}
